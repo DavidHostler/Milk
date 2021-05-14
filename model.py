@@ -13,16 +13,11 @@ class Generator:
         
         model = Sequential()
 
-        model.add(Conv2D(64, (3,3), padding = "same")(input))
-        #model = Conv2D(64, (3,3), padding = "same")(input)
-        model.add(BatchNormalization(momentum = 0.6)(model))
-        #model = BatchNormalization(momentum = 0.5)(model)
-        model.add(PReLU(shared_axes = [1,2])(model))
-        #model = PReLU(shared_axes = [1,2])(model)
-        model.add(Conv2D(64, (3,3), padding = "same")(model))
-        #model = Conv2D(64, (3,3), padding = "same")(model)
-        model.add(BatchNormalization(momentum = 0.6)(model))
-        #model = BatchNormalization(momentum = 0.5)(model)
+        model.add(Conv2D(64, (3,3), padding = "same")(input)) 
+        model.add(BatchNormalization(momentum = 0.6)(model)) 
+        model.add(PReLU(shared_axes = [1,2])(model)) 
+        model.add(Conv2D(64, (3,3), padding = "same")(model)) 
+        model.add(BatchNormalization(momentum = 0.6)(model)) 
     
         return add([input,model])
 
@@ -30,20 +25,15 @@ class Generator:
 
         model = Sequential()
         
-        model.add(Conv2D(64, (3,3), padding = "same")(input))
-        #model = Conv2D(256, (3,3), padding="same")(input)
-        model.add(UpSampling2D( size = 2 )(model))(input)
-        #model = UpSampling2D( size = 2 )(model)
-        model.add(PReLU(shared_axes=[1,2])(model))
-        #model = PReLU(shared_axes=[1,2])(model)
+        model.add(Conv2D(64, (3,3), padding = "same")(input)) 
+        model.add(UpSampling2D( size = 2 )(model))(input) 
+        model.add(PReLU(shared_axes=[1,2])(model)) 
     
         return model
     
     def create_generator(self, generator_inputs):
         model = Sequential()
-        model.add(Conv2D(64, (9,9), padding = "same"))
-        #model = Conv2D(64, (9,9), padding="same")(generator_inputs)
-        #model = PReLU(shared_axes=[1,2])(model)
+        model.add(Conv2D(64, (9,9), padding = "same"))  
         model.add(PReLU(shared_axes=[1,2])(model))
         temp = model
 
