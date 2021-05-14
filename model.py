@@ -21,7 +21,7 @@ class Generator:
 
         model.add(Conv2D(64, (3,3), padding = "same")(input)) 
         model.add(BatchNormalization(momentum = 0.6)(model)) 
-        model.add(PReLU(shared_axes = [1,2])(model)) 
+        model.add(PReLU(shared_axes = self.shared_axes)(model)) 
         model.add(Conv2D(64, (3,3), padding = "same")(model)) 
         model.add(BatchNormalization(momentum = 0.6)(model)) 
     
