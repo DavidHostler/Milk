@@ -1,3 +1,9 @@
+#Credit to Manish Dhakal at https://dev.to/manishdhakal/super-resolution-with-gan-and-keras-srgan-38ma
+#for the excellent explanation of the topic. Most available implementations of SRGAN technology are in Pytorch,
+#which poses the added dilemma of exporting a model into tensorflowjs.
+#This way, it's a small step to delve straight into the web browser from a jupyter notebook,
+#which I greatly appreciate as a developer.
+
 import tensorflow
 import tensorflow as tf 
 from tensorflow.keras.layers import Dense,  Conv2D, MaxPooling2D, Dropout, Flatten 
@@ -27,7 +33,7 @@ class Generator:
         
         model.add(Conv2D(64, (3,3), padding = "same")(input)) 
         model.add(UpSampling2D( size = 2 )(model))(input) 
-        model.add(PReLU(shared_axes=[1,2])(model)) 
+        model.add(PReLU(shared_axes=self.shared_axes)(model)) 
     
         return model
     
