@@ -6,7 +6,7 @@ from tensorflow.keras.models import Sequential
 class Generator:
     def __init__(self):
         self.generator_model = None
-         
+        self.shared_axes = [1,2]
 
 
     def residual_block(self, input):
@@ -34,11 +34,11 @@ class Generator:
     def create_generator(self, generator_inputs):
         model = Sequential()
         model.add(Conv2D(64, (9,9), padding = "same"))  
-        model.add(PReLU(shared_axes=[1,2])(model))
+        model.add(PReLU(shared_axes=self.shared_axes)(model))
         temp = model
 
         for i in range(0,no_resblocks): 
-            model.add(PReLU(shared_axes=[1,2])(model))
+            model.add(PReLU(shared_axes=self.shared_axes)(model))
 
         model.add(Conv2D(64, (3,3), padding="same")(model))
         model.add(BatchNormalization(momentum=0.6)(model))
@@ -83,6 +83,7 @@ class Discriminator:
         d8_5 = Flatten()(d8)
         d9.add(dense(df*16)(d8_5))
         d10 = LeakyReLU(alpha=0.2)(d9)
+        #Might want to experiment with different activation functions here for the output
         validity.add(dense(1, activation='sigmoid')(d10))
 
         return Model(disc_inputs, validity)
