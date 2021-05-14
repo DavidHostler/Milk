@@ -1,15 +1,12 @@
 import tensorflow
 import tensorflow as tf 
 from tensorflow.keras.layers import Dense,  Conv2D, MaxPooling2D, Dropout, Flatten 
-from tensorflow.keras.models import Sequential  
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
+from tensorflow.keras.models import Sequential 
  
 class Generator:
     def __init__(self):
         self.generator_model = None
-        self.discriminator_model = None
+         
 
 
     def residual_block(self, input):
@@ -42,7 +39,7 @@ class Generator:
     
         return model
     
-    def create_gen(self, generator_inputs):
+    def create_generator(self, generator_inputs):
         model = Sequential()
         model.add(Conv2D(64, (9,9), padding = "same"))
         #model = Conv2D(64, (9,9), padding="same")(generator_inputs)
@@ -50,8 +47,7 @@ class Generator:
         model.add(PReLU(shared_axes=[1,2])(model))
         temp = model
 
-        for i in range(num_residual_block):
-            #model = residual_block(model)
+        for i in range(0,no_resblocks): 
             model.add(PReLU(shared_axes=[1,2])(model))
 
         model.add(Conv2D(64, (3,3), padding="same")(model))
@@ -81,7 +77,7 @@ class Discriminator:
 
 
 
-    def create_disc(disc_inputs):
+    def create_discriminator(disc_inputs):
 
         df = 64
         
