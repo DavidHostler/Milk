@@ -1,0 +1,16 @@
+{
+  "name": "video_upload",
+  "version": "1.0.0",
+  "description": "Upload video and image files to Node server for neural super resolution enhancement in python",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Hostler",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "pkg-install": "^1.0.0"
+  }
+}
