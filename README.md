@@ -7,11 +7,11 @@ So far, I've used Pytorch documentation and a set of pretrained weights to build
 
 Using a split terminal, run
 
-node index.js
+"node index.js"
 
 to activate the Express server on localhost 3000, and in the other terminal run  
 
-python Pytorch_Backend/main.py
+"python Pytorch_Backend/main.py"
 
 
 simultaneously.
