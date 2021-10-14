@@ -1,13 +1,11 @@
 # Milk
-This is my attempt at implementing a GAN to optimize video quality, via both a backend approach and one in browser. The lack of bandwidth during the pandemic due to stay at home policies showed the need for a cheap and easy way to improve streaming data quality. The solution will be a deep learning model trained in python, then mapped to a corresponding architecture  in the browser via Tensorflow.js.
-
-Credit to Manish Dhakal for providing an excellent tutorial of the subject of super-resolution techniques in his medium article, and how to get started with it using Keras and Tensorflow.
-Many other tutorials also exist, but are in Pytorch, so it's a lifesaver that he provided this since this project relies on Tensorflow.js being run tentatively in the browser. I've linked his article below for any interested parties:
-  
-  https://dev.to/manishdhakal/super-resolution-with-gan-and-keras-srgan-38ma
-  
-  
 
 
 
-So far, I've used Pytorch documentation and a set of pretrained weights to build a fullstack Node app to upload a given image and upscale its resolution by a factor of 3 in the python backend. Soon, I'll add video processing functionality to the backend once I have time. 
+
+So far, I've used Pytorch documentation and a set of pretrained weights to build a fullstack Node app to upload a given image and upscale its resolution by a factor of 3 in the python backend, using a NodeJS/ExpressJS backend to post files to the server, which are then upscaled via Pytorch using the SRGAN architecure on the Pytorch website, including pretrained weights. 
+
+Using a split terminal, run "node index.js" to activate the Express server on localhost 3000, and in the other terminal run  "python Pytorch_Backend/main.py"
+simultaneously.
+The reason for using ExpressJS and not Django which already uses Python, is that I wished to make this app a quick demonstration of image upscaling and not a commercial application at this point, and ExpressJS requires very, very little code!
+Additionally, it's interesting to see a machine use two programs written in separate languages (i.e. Javascript and Python) work together to accomplish a task on the same device. I may be uniquely fascinated in this regard...
