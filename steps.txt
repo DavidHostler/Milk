@@ -1,0 +1,5 @@
+In root of project:
+
+create virtual environment with "python3 -m venv Torch"
+activate virtual environment with "source Pytorch_Backend/Torch/bin/activate"
+"pip install -r Pytorch_Backend/requirements.txt"

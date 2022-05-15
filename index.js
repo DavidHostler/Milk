@@ -4,10 +4,10 @@ const upload = require('express-fileupload');
 
 const app = express();
 
-app.use(upload())
+app.use(upload('uploads'))
 
 
-app.get('/uploads', (req,res) => {
+app.get('/', (req,res) => {
     res.sendFile(__dirname +  '/index.html'  )
     
 })
