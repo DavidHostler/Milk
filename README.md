@@ -3,7 +3,7 @@
 
 
 
-So far, I've used Pytorch documentation and a set of pretrained weights to build a fullstack Node app to upload a given image and upscale its resolution by a factor of 3 in the python backend, using a NodeJS/ExpressJS backend to post files to the server, which are then upscaled via Pytorch using the SRGAN architecure on the Pytorch website, including pretrained weights. 
+So far, I've used Pytorch documentation and a set of pretrained weights to build a fullstack Node app to upload a given image and upscale its resolution by a factor of 3 in the python backend, using a NodeJS/ExpressJS backend to post files to the server, which are then upscaled via Pytorch using the SRGAN architecure on the Pytorch website, including pretrained weights taken from the Pytorch website.
 
 
 To set up the project, make sure that you're in the root folder already.
@@ -55,5 +55,11 @@ is a process that would normally  take place on a server in the cloud thousands 
 
 The reason for using ExpressJS and not Django which already uses Python, is that I wished to make this app a quick demonstration of image upscaling ather than a commercial application at this point, and ExpressJS requires very, very little code!
 Additionally, it's interesting to see a machine use two programs written in separate languages (i.e. Javascript and Python) work together to accomplish a task on the same device. Setting up the entire project locally provides the user with a closeup view of the code, rather than hosting it online and letting them only see the front end code, which itself is very basic.
+
+At the end of it all, we have a device that takes in a generic image, and uses deep learning techniques to improve the resolution of the image.
+Of course, if you upload an image of higher resolution that it's meant to put out, this will not be all that useful to you. Low-quality images 
+are a perfect fit for this app. Try it out and see if you find this concept useful.
+
+
 
 Happy hacking!
