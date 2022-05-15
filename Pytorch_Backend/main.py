@@ -16,9 +16,9 @@ import numpy as np
 import time 
 print("Hola Mundo!")
 
-
-videopath = "/home/david/Downloads/srgan/backend/files/video/"
-imagepath = "/home/david/Downloads/srgan/backend/files/images/"
+ROOT = os.getcwd()
+# videopath = "/home/david/Downloads/srgan/backend/files/video/"
+imagepath = "Downloads/PortfolioProjects/Milk/uploads/"
 
 def get_video_frames(path,images_path, frame_limit):
     cap= cv2.VideoCapture(path)
@@ -162,6 +162,6 @@ final_img = Image.merge(
     ]).convert("RGB")
  
 
-final_img = final_img.save("/home/david/Downloads/srgan/backend/sr_image/final_image.jpg")
+final_img = final_img.save("/home/dolan/Downloads/PortfolioProjects/Mil/upscaled_imgs/final_image.jpg")
 
-#cv2.imwrite("sr_image/new.jpg", final_img )
+#cv2.imwrite("upscaled_imgs/new.jpg", final_img )

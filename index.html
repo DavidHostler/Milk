@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 
+<style>
+    header{
+        background-color:lightskyblue;
+    }
+    h1{
+        text-align: center;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    h3{
+        text-align: center;
+    }
+
+
+    input{
+        margin: auto;
+        left: 350px;
+    }
+
+    body{
+        background-color: greenyellow;
+    }
+</style>
+<header>c
 <h1>Super Resolution Model Website!</h1>
+<h3>Upload a low res image or videofile to my Express and NodeJS server,
+    and it will be upscaled by a factor of 9 times its initial resolution 
+    through the use of a set of neural networks referred to as a GAN, commonly also
+    used for deepfakes. The GAN hallucinates what it believes a more clear version of 
+    the same image should look like, and as far as the human eye can tell, she's not
+    wrong!
+    You can then see it on this page, and compare the before and after, provided
+    that you're using chrome browser.
+</h3>
+</header>
 
-<body>
-
-    <h3>Upload a low res image or videofile to my Express and NodeJS server,
-        and it will be upscaled by a factor of 9 times its initial resolution 
-        through the use of a set of neural networks referred to as a GAN, commonly also
-        used for deepfakes. The GAN hallucinates what it believes a more clear version of 
-        the same image should look like, and as far as the human eye can tell, she's not
-        wrong!
-        You can then see it on this page, and compare the before and after, provided
-        that you're using chrome browser.
-    </h3>
+    
 <form method="POST" action="/" enctype="multipart/form-data">
 
 <input type="file" name="file"/>
@@ -23,25 +50,34 @@
 </form>
 
 
+<body>
 <h2>Technology Stack used</h2>
 <p>
 
     The stack used for this application was fairly hefty, but allowed for me to incorporate 
     my knowledge of multiple frameworks into one full-stack application.
+
+
     
+</p>
+<p>
     The frontend is currently in HTML (Once I'm done with the backend server code I will recreate this page using
     ReactJS ) and the backend is a Node server running Express, and python code containing a neural network 
     constructed in Pytorch/ONNX, relying OpenCV and Pillow for the data pipeline used to parse video into image,
     feed these images to the neural network, and reconstruct the outputs of the neural network back into a video.
     ExpressJS allowed me to display both the input and upscaled videos in this browser page!
-    
+
+
+</p>
+
+
+<p>
 
     If I need to, I'll incorporate either a Postgresql or MongoDB Atlas database into the backend to 
     allow the app to scale for actual user use. I also need to add a login page, because if anybody can just use 
     this app then I'm quickly going to run into server-side trouble!
+</p>   
 
-
-
-</p>
+<img src='/uploads/Angel_Of_Death.jpg'/>
 
 </body>
